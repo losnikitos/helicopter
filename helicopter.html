@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Helicopter</title>
+    <link rel="stylesheet" href="styles/helicopter.css">
+</head>
+<body>
+<div class="helicopter"></div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+    var h = 512,
+        frames = 8,
+        elem = $('.helicopter'),
+        currentFrame = 0;
+
+    function next() {
+        elem.css({backgroundPosition: '0 ' + h * currentFrame + 'px'});
+        currentFrame = (currentFrame + 1) % frames;
+        requestAnimationFrame(next);
+    }
+
+    next();
+</script>
+</body>
+</html>
